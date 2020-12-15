@@ -30,7 +30,7 @@ class Articles extends CI_Controller
 			$this->load->view('layouts/main', $data);
 		} else {
 			$dataImage[] = '';
-			if (count($_FILES['item_image']["name"] > 0 && $_FILES['item_image']['error'] == UPLOAD_ERR_OK))
+			if (count($_FILES['item_image']["name"]) > 0 && $_FILES['item_image']['error'] == UPLOAD_ERR_OK)
 
 			{
 
@@ -53,10 +53,13 @@ class Articles extends CI_Controller
 				'user_id' => $this->input->post('user_id')
 			);
 			if ($this->article_model->createArticle($data)) {
-				redirect($_SERVER['HTTP_REFERER']);
-			} 
+				$this->load->view('Users/home');
+			}
 
 		}
 	}
-
+	public function delete($id){
+		$this->article_model->delete($id);
+		redirect($_SERVER['HTTP_REFERER']);
+	}
 }

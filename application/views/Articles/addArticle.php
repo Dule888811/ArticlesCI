@@ -49,5 +49,4 @@
 			<button type="submit" name="upload" id="upload" value="submit" >Submit</button>
 		</div>
 	</form>
-	<a href ="#">Main page</a>
 </div>

@@ -10,3 +10,9 @@ h2 {
 	justify-content: space-around;
 	align-items: baseline;
 }
+.articleDiv {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+
