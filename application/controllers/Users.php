@@ -37,11 +37,17 @@ class Users extends CI_Controller
 			$email = $this->input->post('email');
 			$this->load->model('User_model');
 			$user_data = $this->User_model->login_user($email, $password);
-			var_dump($user_data);
+		//	var_dump($user_data);
+			$first_name = $user_data->first_name;
+			$last_name = $user_data->last_name;
+			$id = $user_data->id;
 			if($user_data){
 				$user_data = array(
-					'email' => $email,
-					'logged_in' => true
+					'email' 	 => $email,
+					'first_name' => $first_name,
+					'last_name'  => $last_name,
+					'id' 		 => $id,
+					'logged_in'  => true
 				);
 				$this->session->set_userdata($user_data);
 				$this->session->set_flashdata('success', 'You are now logged in. Good for you.');
@@ -55,6 +61,6 @@ class Users extends CI_Controller
 	}
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect('Welcome');
+		redirect('Users');
 	}
 }

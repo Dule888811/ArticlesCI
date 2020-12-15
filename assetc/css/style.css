@@ -5,3 +5,8 @@
 h2 {
 	text-align: center;
 }
+.headline {
+	display: flex;
+	justify-content: space-around;
+	align-items: baseline;
+}
