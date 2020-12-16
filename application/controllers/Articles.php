@@ -83,9 +83,9 @@ class Articles extends CI_Controller
 				'image' => json_encode(implode(',', $dataImage)),
 				'id' => $id
 			);
-			var_dump($id,$data);
+
 			if ($this->article_model->editArticle($id,$data)) {
-				echo "succes";
+				redirect($_SERVER['HTTP_REFERER']);
 			}
 		}
 

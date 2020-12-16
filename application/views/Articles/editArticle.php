@@ -40,10 +40,15 @@ foreach ($imageArray as $image)
 			<div class="form-input items">
 				<input type="file"  value=<?php echo base_url(); ?>assetc/images/<?php echo $image ?>  name="item_image[]">
 				<?php echo img(array('src'=>'assetc/images/' .   $image , 'alt'=> $image)); ?>
+				<img src='assetc/images/' .  <?php echo $image ?>
 				<i  class="fa fa-trash image" id=<?php echo $i++ ?>></i>
 			</div>
 		</div>
 		<?php
+	}else{?>
+		<div class="wrapper" id="divImages">
+			<div class="form-input items">
+				<?php
 	}
 }
 
