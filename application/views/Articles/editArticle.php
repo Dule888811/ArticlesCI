@@ -13,34 +13,43 @@
 	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 </head>
 <div id="storeAricle">
-	<form  method="post" action="<?php echo base_url() ?>index.php/Articles/addArticle" id="upload_form" enctype="multipart/form-data">
+	<form  method="post" action="<?php echo base_url() ?>index.php/Articles/editArticle/<?php echo $article[0]->id;?>" id="upload_form" enctype="multipart/form-data">
 
-		<select name="user_id" id="<?php echo $this->session->userdata('first_name') ?>">
-			<option value=<?php echo $this->session->userdata('id') ?> selected><?php echo $this->session->userdata('id')?></option>
-		</select>
+
 
 
 		<div class="form-input">
 			<label for="title">Title</label>
-			<input type="text" name="title" id="title">
+			<input type="text" value= <?php echo $article[0]->headline ?> name="title" id="title">
 		</div>
 
 		<div class="form-input">
 			<h2>Your blog</h2>
-			<textarea name="blog" id="blog"  rows="4" cols="50"">Enter text here...</textarea>
+			<textarea name="blog" id="blog" v  rows="4" cols="50""><?php echo $article[0]->content ?></textarea>
 		</div>
 
 
+<?php $imageArray = explode(",",json_decode($article[0]->image));
+$i = 1;
 
+foreach ($imageArray as $image)
+{
+	if(!empty($imageArray) && $image != ""){
+		?>
 		<div class="wrapper" id="divImages">
-
 			<div class="form-input items">
-				<label for="item_image[]">item image</label>
-				<input type="file" id="uploadImage" name="item_image[]">
+				<input type="file"  value=<?php echo base_url(); ?>assetc/images/<?php echo $image ?>  name="item_image[]">
+				<?php echo img(array('src'=>'assetc/images/' .   $image , 'alt'=> $image)); ?>
+				<i  class="fa fa-trash image" id=<?php echo $i++ ?>></i>
 			</div>
-
-
 		</div>
+		<?php
+	}
+}
+
+
+?>
+
 		<a href="" id="photos">
 			<i class="fa fa-plus"></i>
 		</a>
@@ -50,3 +59,4 @@
 		</div>
 	</form>
 </div>
+

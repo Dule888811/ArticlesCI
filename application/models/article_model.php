@@ -21,4 +21,22 @@ class article_model  extends CI_Model
 		$this->db->where('id', $id);
 		$this->db->delete('article');
 	}
+
+	public function getArticle($id)
+	{
+		$this->db->select('
+            article.*
+            ');
+		$this->db->from('article');
+		$this->db->where('id', $id);
+		$results = $this->db->get();
+		return $results->result();
+	}
+
+	public function editArticle($id,$data)
+	{
+		$this->db->where('id', $id);
+		$this->db->update('article', $data);
+
+	}
 }

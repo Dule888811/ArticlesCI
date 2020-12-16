@@ -18,7 +18,7 @@
 	foreach($articles as $article){
 		echo "<div class='articleDiv'><h4>" . $article->headline . "</h4>"; ?>
 	<div class="crudArticle">
-		<form action="<?php echo base_url() ?>index.php/Articles/edit/' <?php echo $article->id;?>"  method="POST">
+		<form action="<?php echo base_url() ?>index.php/Articles/edit/<?php echo $article->id;?>"  method="POST">
 			<button class="btn" type="submit"><i class="fa fa-pencil"></i></button>
 		</form>
 		<form action="<?php echo base_url() ?>index.php/Articles/delete/<?php echo $article->id;?>"  method="POST">

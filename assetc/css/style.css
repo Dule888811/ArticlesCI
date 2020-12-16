@@ -15,4 +15,6 @@ h2 {
 	align-items: baseline;
 	justify-content: space-between;
 }
-
+.crudArticle {
+	display: flex;
+}
